@@ -1,0 +1,43 @@
+<p-menubar>
+	<ng-template #start>
+		<div class="flex gap-2 items-center">
+			<img class="block" src="assets/images/angular-logo.png" alt="logo" height="32" width="32" />
+			<h1>Angular i18n</h1>
+		</div>
+	</ng-template>
+	<ng-template #end>
+		<div class="flex flex-col gap-2">
+			<label for="language" class="text-xs">Language</label>
+			<p-select
+				inputId="language"
+				size="small"
+				[options]="languages"
+				optionLabel="label"
+				optionValue="code"
+				placeholder="Select language"
+				[(ngModel)]="selectedLanguage"
+				(ngModelChange)="onLanguageChange()"
+			/>
+		</div>
+	</ng-template>
+</p-menubar>
+
+<div class="px-72 py-4 flex flex-col gap-2">
+	<div>WelcomeMessage: {{ 'WelcomeMessage' | translate }}</div>
+	<div>Logout: {{ 'Logout' | translate }}</div>
+	<div>Profile: {{ 'Profile' | translate }}</div>
+	<div>Settings: {{ 'Settings' | translate }}</div>
+	<div>Dashboard: {{ 'Dashboard' | translate }}</div>
+	<div>Notifications: {{ 'Notifications' | translate }}</div>
+	<div>Search: {{ 'Search' | translate }}</div>
+	<div>Help: {{ 'Help' | translate }}</div>
+	<div>Save: {{ 'Save' | translate }}</div>
+	<div>Cancel: {{ 'Cancel' | translate }}</div>
+	<div>Delete: {{ 'Delete' | translate }}</div>
+	<div>Edit: {{ 'Edit' | translate }}</div>
+	<div>Submit: {{ 'Submit' | translate }}</div>
+	<div>Yes: {{ 'Yes' | translate }}</div>
+	<div>No: {{ 'No' | translate }}</div>
+	<div>NoTranslationFound: {{ 'NoTranslationFound' | translate }}</div>
+	<div>Fallback: {{ 'Fallback' | translate }}</div>
+</div>
