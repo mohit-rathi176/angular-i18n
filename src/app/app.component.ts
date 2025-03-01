@@ -3,9 +3,8 @@ import { FormsModule } from '@angular/forms';
 import { MenubarModule } from 'primeng/menubar';
 import { SelectModule } from 'primeng/select';
 import { TextsService } from './services/texts.service';
-import { MissingTranslationHandlerParams, TranslateModule, TranslateService, TranslationObject } from '@ngx-translate/core';
+import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { APP_LANGUAGES } from './constants/languages.constant';
-import { Observable, of } from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -27,18 +26,6 @@ export class AppComponent {
 
 	constructor() {
 		this.translateService.addLangs(['en', 'es', 'ca']);
-		this.translateService.missingTranslationHandler = {
-			handle: (params: MissingTranslationHandlerParams) => {
-				return `[MISSING]: ${params.key}`;
-			}
-		};
-		this.translateService.currentLoader = {
-			getTranslation: (lang: string): Observable<TranslationObject> => {
-				return of(this.textsService.getTranslation(lang));
-			}
-		};
-		this.translateService.use(this.selectedLanguage);
-		this.translateService.setDefaultLang('en');
 	}
 
 	onLanguageChange(): void {
